@@ -1,0 +1,99 @@
+{
+	"slurm":{"account":"development"},
+
+	"tools":{
+		"bcftools":{
+			"singularity":"singularity/bcftools_1.19--h8b25389_0.sif"
+		},
+		"cnvpytor":{
+			"singularity":"singularity/cnvpytor_1.3.1--pyhdfd78af_1.sif"
+		},
+		"chopper":{
+			"singularity":"singularity/chopper_0.7.0--hdcf5f25_0.sif"
+		},
+		"clair3":{
+			"singularity":"singularity/clair3_latest.sif",
+			"ont_model":"/home/proj/development/rare-disease/ONT/analysis/poorpipe/r1041_e82_400bps_hac_v430/"
+		},
+		"fastqc":{
+			"singularity":"singularity/fastqc_0.12.1--hdfd78af_0.sif"
+		},
+		"genmod":{
+			"singularity": "singularity/genmod_3.7.4--pyh5e36f6f_0.sif",
+			"rank_model":"genmod/rank_model_-v1.36-.ini",
+			"sv_rank_model":"poorpipe/svrank_model_-v1.9-.ini"
+		},
+		"hificnv":{
+			"singularity": "singularity/hificnv_1.0.0--h9ee0642_0.sif",
+			"cn_male":"references/expected_cn.hg19.XY.bed",
+			"cn_female":"references/expected_cn.hg19.XX.bed"
+
+		},
+		"vep":{
+			"singularity":"singularity/ensembl-vep_107.0--pl5321h4a94de4_0.sif",
+			"vep_snv":"--af_1kg --assembly GRCh37 --dir_cache /home/proj/development/rare-disease/ONT/analysis/poorpipe/references/ensembl-tools-release-107/cache/ --sift b --symbol --hgvs --clin_sig_allele 1 --polyphen b --merged --offline --plugin SpliceAI,snv=/home/proj/production/rare-disease/references/references_12.0/grch37_spliceai_scores_raw_snv_-v1.3-.vcf.gz,indel=/home/proj/production/rare-disease/references/references_12.0/grch37_spliceai_scores_raw_indel_-v1.3-.vcf.gz --plugin CADD,databases/whole_genome_SNVs.tsv.gz,databases/InDels.tsv.gz --plugin dbNSFP,/home/proj/production/rare-disease/references/references_12.0/grch37_dbnsfp_-v3.5a-.txt.gz,ALL --mirna --regulatory --gene_phenotype --custom references/gnomad.genomes.r2.0.1.sites.noVEP.vcf.gz,gnomADg,vcf,exact,0,AF_POPMAX,AF",
+			"vep_sv":"--assembly GRCh37 --dir_cache /home/proj/development/rare-disease/ONT/analysis/poorpipe/references/ensembl-tools-release-107/cache/ --symbol --hgvs --merged --offline --max_sv_size 300000000 --per_gene --mirna --regulatory --gene_phenotype"
+		},
+		"vcf2cytosure":{
+			"singularity":"singularity/vcf2cytosure_v0.8.sif"
+		},
+		"multiqc":{
+			"singularity":"singularity/multiqc_1.18--pyhdfd78af_0.sif"
+		},
+		"nanostats":{
+			"singularity":"singularity/nanostat_1.6.0--pyhdfd78af_0.sif"
+		},
+		"picard":{
+			"singularity":"singularity/picard_3.1.1--hdfd78af_0.sif"
+		},
+		"samtools":{
+			"singularity":"singularity/samtools_1.19--h50ea8bc_0.sif"
+		},
+		"sniffles":{
+			"singularity":"singularity/sniffles_1.0.12--h8b12597_0.sif"
+		},
+		"svdb":{
+			"singularity":"singularity/svdb_2.8.2--py38h24c8ff8_1.sif",
+			"database":"SVDB.vcf"
+		},
+		"tiddit":{
+			"singularity":"singularity/tiddit_3.6.1--py38h24c8ff8_0.sif"
+		},
+		"strdust":{
+			"singularity":"singularity/strdust_0.8.0--h5c23e0d_0.sif",
+			"repeat_catalog":"hg19.STRchive-disease-loci.TRGT.bed"
+			},
+		"methylartist":{
+			"singularity":"singularity/methylartist_1.2.11--pyhdfd78af_0.sif"
+		},
+		"paraphase":{
+			"singularity":"singularity/paraphase_3.0.0_build1.sif",
+			"genome":"37"
+		},
+		"minimap2":{
+			"singularity":"singularity/minimap2_2.26--he4a0461_2.sif"
+		},
+		"whatshap":{
+			"singularity":"singularity/whatshap_2.1--py39h1f90b4d_0.sif"
+		},
+		"vcftools":{
+			"singularity":"singularity/vcftools_0.1.16--pl5321hdcf5f25_9.sif"
+		}
+	},
+
+	"processes":{
+		"align":{
+			"cores":"20",
+			"time":"3-00:00:00"
+		},
+		"methylartist_wgmeth":{
+			"cores":"16",
+			"time":"1-00:00:00"
+		}
+	},
+
+	"singularity":{"options":"--bind /home/proj/"},
+	"reference":"//home/proj/development/rare-disease/ONT/analysis/poorpipe/references/human_g1k_v37.fasta"
+}
+
+
